@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,15 @@ import com.sysbytes.user1.service.UserService;
 public class UserResource {
 	
 	private static final Logger LOG = Logger.getLogger(UserResource.class.getName());
+	@Value("${welcomemessage:dev dev}")
+	private String message;
 	
 	@Autowired
 	private UserService userService;
 	@GetMapping(value="/users")
+
 	public List<User> getUsers() {
-		 LOG.log(Level.INFO, "In get users");
+		 LOG.log(Level.INFO, "In get users "+message);
 		return userService.getAllUsers();
 	}
 	
