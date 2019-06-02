@@ -2,8 +2,6 @@ package com.sysbytes.user1.service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-
 import com.sysbytes.user1.model.User;
 
 public interface UserService {
