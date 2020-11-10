@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+   eurekaserver:
+      image: eurekaserver
+      ports:
+          - "8765:8765"
+      networks:
+      - overlay
+   orderms:
+      image: orderms
+      ports:
+          - "4040:4040"
+      depends_on:
+      - user2         
+      networks:
+      - overlay
+   user2:
+      image: user2
+      ports:
+          - "3031:3031"
+      networks:
+      - overlay
+networks:
+   overlay:

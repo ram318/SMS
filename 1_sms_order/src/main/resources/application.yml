@@ -1,0 +1,11 @@
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eurekaserver:8765/eureka/
+server:
+  port: 4040
+spring:
+  application:
+    name: orderms
